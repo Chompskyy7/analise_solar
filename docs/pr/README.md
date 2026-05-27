@@ -41,5 +41,13 @@ Em `docs/pr/patches/`:
   - `pr/sprint-2`
   - `pr/sprint-3`
 
+### Publicar e abrir PRs automaticamente (GitHub)
+- Pré-requisito:
+  - `gh auth login` (autenticar no GitHub CLI)
+- Script:
+  - `scripts/publish_and_open_prs.ps1 -RemoteUrl "<url-do-repo>" -BaseBranch "main"`
+- Resultado:
+  - push das branches e criação dos 3 PRs automaticamente.
+
 ## Observação importante
 Como o projeto estava sem histórico Git prévio (`.git` ausente), os PRs locais de sprint foram estruturados com foco em escopo/evidência e transporte (patches). Para diffs retroativos completos por sprint em código, é necessário baseline versionado anterior (ou repositório remoto com histórico pré-consolidação).
