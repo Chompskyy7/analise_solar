@@ -1,0 +1,25 @@
+[package]
+name = "analise-solar-plus"
+version = "0.3.0"
+description = "Análise Solar Plus"
+authors = ["Pipeline Solar"]
+edition = "2021"
+
+[lib]
+name = "pipeline_solar_modernizacao_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[package.metadata.tauri-winres]
+OriginalFilename = "Análise Solar Plus.exe"
+FileDescription = "Análise Solar Plus"
+ProductName = "Análise Solar Plus"

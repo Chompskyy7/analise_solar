@@ -1,0 +1,18 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Default permissions for Pipeline Solar desktop window",
+  "windows": ["main"],
+  "permissions": [
+    "opener:default",
+    {
+      "identifier": "shell:allow-spawn",
+      "allow": [
+        {
+          "name": "binaries/pipeline-solar-backend",
+          "sidecar": true
+        }
+      ]
+    }
+  ]
+}

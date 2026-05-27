@@ -1,0 +1,34 @@
+# Build artifacts
+build/
+dist/
+frontend/dist/
+frontend/node_modules/
+src-tauri/target/
+src-tauri/gen/
+src-tauri/bundle/
+
+# Generated binaries and installers
+*.msi
+*-setup.exe
+src-tauri/binaries/*.exe
+src-tauri/binaries/*.dll
+
+# Runtime and logs
+*.log
+_smoke_clientes/
+_smoke_empty_downloads/
+_smoke_output/
+tmp/
+temp/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
