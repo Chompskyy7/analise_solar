@@ -1,0 +1,43 @@
+From e3f1a9d2437579d596fe905796973e38b44d982c Mon Sep 17 00:00:00 2001
+From: Codex Local <codex-local@example.com>
+Date: Wed, 27 May 2026 15:39:41 -0300
+Subject: [PATCH] =?UTF-8?q?docs(sprint-1):=20escopo=20e=20evid=C3=AAncias?=
+ =?UTF-8?q?=20do=20PR=20isolado?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ docs/pr/sprint-1.md | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+ create mode 100644 docs/pr/sprint-1.md
+
+diff --git a/docs/pr/sprint-1.md b/docs/pr/sprint-1.md
+new file mode 100644
+index 0000000..dfc5eaa
+--- /dev/null
++++ b/docs/pr/sprint-1.md
+@@ -0,0 +1,20 @@
++# PR Sprint 1 — Consolidação visual + schema versioning
++
++## Escopo
++- Remoção do legado `styles.css` do fluxo ativo.
++- `globals.css` como única folha global importada em `frontend/src/main.tsx`.
++- Persistência com `schema_version: 1` para `settings.json` e `history.json`.
++- Migração automática de JSON legado sem schema com backup `.bak`.
++- Erro explícito para schema desconhecido sem sobrescrita silenciosa.
++
++## Evidências de aceite
++- `rg -n "styles\\.css" frontend/src frontend/dist -S` -> sem referências.
++- `python backend/tests/test_settings_encoding.py` -> OK (migração + `.bak` + schema desconhecido).
++- `npm.cmd run build` -> OK.
++- `quality_gate.ps1 -SkipBuild` -> OK.
++
++## Arquivos principais
++- `frontend/src/main.tsx`
++- `frontend/src/globals.css`
++- `backend/service.py`
++- `backend/tests/test_settings_encoding.py`
+-- 
+2.54.0.windows.1
+

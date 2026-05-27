@@ -1,0 +1,46 @@
+From 9dcafff4d1e7bc2d0f2ee276292eb434547ff04d Mon Sep 17 00:00:00 2001
+From: Codex Local <codex-local@example.com>
+Date: Wed, 27 May 2026 15:40:39 -0300
+Subject: [PATCH] =?UTF-8?q?docs(sprint-3):=20escopo=20e=20evid=C3=AAncias?=
+ =?UTF-8?q?=20do=20PR=20isolado?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ docs/pr/sprint-3.md | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+ create mode 100644 docs/pr/sprint-3.md
+
+diff --git a/docs/pr/sprint-3.md b/docs/pr/sprint-3.md
+new file mode 100644
+index 0000000..469acc9
+--- /dev/null
++++ b/docs/pr/sprint-3.md
+@@ -0,0 +1,23 @@
++# PR Sprint 3 — Telemetria opt-in + rollback pós-update
++
++## Escopo
++- Telemetria de erro opt-in (desligada por padrão), com endpoint configurável e disclosure explícito na UI.
++- Rollback automático após update quando `GET /api/health` falha.
++- Notificação de rollback exposta pelo backend (`rollbackNotice`) e consumida pelo frontend.
++- Estabilização de build/simulação local:
++  - sidecar garantido em `target/release`;
++  - simulação com escrita UTF-8 sem BOM e timeout adequado.
++
++## Evidências de aceite
++- `python backend/tests/test_telemetry_optin.py` -> OK.
++- `powershell ... simulate_update_rollback_health_fail.ps1 -ProjectRoot <root>` -> OK:
++  - `[OK] Rollback automatico disparado.`
++- `quality_gate.ps1 -SkipBuild` -> OK.
++
++## Arquivos principais
++- `frontend/src/App.tsx`
++- `backend/service.py`
++- `backend/telemetry.py`
++- `src-tauri/src/lib.rs`
++- `src-tauri/scripts/simulate_update_rollback_health_fail.ps1`
++- `build_desktop_app.bat`
+-- 
+2.54.0.windows.1
+

@@ -1,0 +1,43 @@
+From bd6058af3608749c9bed4f7ad86b0b050d47e6f2 Mon Sep 17 00:00:00 2001
+From: Codex Local <codex-local@example.com>
+Date: Wed, 27 May 2026 15:40:08 -0300
+Subject: [PATCH] =?UTF-8?q?docs(sprint-2):=20escopo=20e=20evid=C3=AAncias?=
+ =?UTF-8?q?=20do=20PR=20isolado?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ docs/pr/sprint-2.md | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+ create mode 100644 docs/pr/sprint-2.md
+
+diff --git a/docs/pr/sprint-2.md b/docs/pr/sprint-2.md
+new file mode 100644
+index 0000000..3290264
+--- /dev/null
++++ b/docs/pr/sprint-2.md
+@@ -0,0 +1,20 @@
++# PR Sprint 2 — Observabilidade por tarefa
++
++## Escopo
++- Logging estruturado por job:
++  - `job_id`, timestamps início/fim, `error_code` padronizado e stack sanitizado.
++- Códigos de erro centralizados em módulo único.
++- Export de diagnóstico por tarefa sem dados sensíveis por padrão.
++- Hash SHA-256 de saída por job com persistência em histórico para detecção de drift.
++
++## Evidências de aceite
++- `python backend/tests/test_job_observability.py` -> OK.
++- `python backend/server.py --self-check` -> OK.
++- Endpoint de suporte disponível:
++  - `POST /api/support/export`.
++
++## Arquivos principais
++- `backend/error_codes.py`
++- `backend/service.py`
++- `backend/server.py`
++- `backend/tests/test_job_observability.py`
+-- 
+2.54.0.windows.1
+
