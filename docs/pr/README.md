@@ -19,6 +19,9 @@ Em `docs/pr/patches/`:
 - `0001-docs-sprint-2-escopo-e-evid-ncias-do-PR-isolado.patch`
 - `0001-docs-sprint-3-escopo-e-evid-ncias-do-PR-isolado.patch`
 
+## Templates de descrição
+- `docs/pr/PR_TEMPLATES.md`
+
 ## Publicação quando houver remoto
 1. Adicionar remoto:
    - `git remote add origin <url-do-repo>`
@@ -28,6 +31,15 @@ Em `docs/pr/patches/`:
    - `git push -u origin pr/sprint-2`
    - `git push -u origin pr/sprint-3`
 3. Abrir PRs no provedor Git usando as branches acima.
+
+### Opção automatizada
+- Script:
+  - `scripts/publish_sprint_branches.ps1 -RemoteUrl "<url-do-repo>"`
+- O script cria/atualiza `origin` e faz push de:
+  - `main`
+  - `pr/sprint-1`
+  - `pr/sprint-2`
+  - `pr/sprint-3`
 
 ## Observação importante
 Como o projeto estava sem histórico Git prévio (`.git` ausente), os PRs locais de sprint foram estruturados com foco em escopo/evidência e transporte (patches). Para diffs retroativos completos por sprint em código, é necessário baseline versionado anterior (ou repositório remoto com histórico pré-consolidação).
